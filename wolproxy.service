@@ -1,0 +1,16 @@
+[Unit]
+Description=Wake on Lan Proxy
+After=network.target
+
+[Service]
+User=wolproxy
+Group=wolproxy
+Type=simple
+ExecStart=/usr/bin/wolproxy
+ProtectSystem=yes
+ProtectHome=yes
+NoNewPrivileges=yes
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target

@@ -15,13 +15,10 @@ wolproxy:  $(OBJS)
 	$(CC) $(CFLAGS) -o wolproxy $(OBJS) $(LIBS)
 	
 install: wolproxy
-	cp wolproxy /usr/bin
-	cp wolproxy.init.d.pi /etc/init.d/wolproxy
-	chmod +x /etc/init.d/wolproxy
-	update-rc.d wolproxy defaults
+	install.sh
 
 depend:
-	makedepend -- $(CFLAGS) $(LOBJS:.o=.c)  
+	makedepend -- $(CFLAGS) $(LOBJS:.o=.c)
 
 clean:
 	rm -f *.o *.a $(ALL) $(OBJS)
